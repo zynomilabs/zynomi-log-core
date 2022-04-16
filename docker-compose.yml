@@ -1,0 +1,35 @@
+version: "3"
+networks:
+  loki:
+services:
+  loki:
+    image: grafana/loki:2.4.0
+    volumes:
+      - /Users/nathansweb/zynomilabs/zynomi-log-lpg/loki:/etc/loki
+    ports:
+      - "3100:3100"
+    restart: unless-stopped
+    command: -config.file=/etc/loki/loki-config.yml
+    networks:
+      - loki
+  promtail:
+    image: grafana/promtail:2.4.0
+    volumes:
+      - /opt/zynomi-api-nodejs/logs:/var/log
+      - /opt/zynomi-log-lpg/promtail:/etc/promtail
+    # ports:
+    #   - "1514:1514" # this is only needed if you are going to send syslogs
+    restart: unless-stopped
+    command: -config.file=/etc/promtail/promtail-config.yml
+    networks:
+      - loki
+  grafana:
+    image: grafana/grafana:latest
+    user: "1000"
+    volumes:
+      - /opt/zynomi-log-lpg/grafana:/var/lib/grafana
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    networks:
+      - loki
