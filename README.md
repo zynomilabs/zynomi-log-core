@@ -7,6 +7,7 @@ Log aggregator and vizualization setup using Grafana, Loki and Promtail
 - Docker engine
 - Should know how to setup `loki` as datasource
 - LogQL language
+- api or app to generate logs in a designated directory which you would like to scrape thru promtail
 
 ## Setup procedure
 
