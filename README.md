@@ -29,6 +29,7 @@ Log aggregator and vizualization setup using Grafana, Loki and Promtail
 
 ## References
 
+- [Meet Grafana LOKI, a Log Aggregation System for EVERYTHING](https://www.youtube.com/watch?v=h_GGd7HfKQ8)
 - How to setup slack notification using [Slack Webhook](https://www.youtube.com/watch?v=yWzxbG3YDcM)
 - Free Webhook testers online
   - [WebHook.Site](https://webhook.site/)
